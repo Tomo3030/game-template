@@ -1,0 +1,29 @@
+<div *ngIf="user">
+  <mat-card class="card">
+    <h2 class="welcome-text">
+      Welcome Back <strong> {{ user.displayName }}</strong>
+    </h2>
+    <button
+      (click)="continue()"
+      class="button"
+      mat-raised-button
+      color="accent"
+    >
+      CONTINUE
+    </button>
+  </mat-card>
+  <div class="sign-out-text">
+    <div>
+      Not <strong>{{ user.displayName }}</strong
+      >?
+    </div>
+
+    <button
+      mat-stroked-button
+      class="my-stroked-button button"
+      (click)="signOut()"
+    >
+      Sign Out
+    </button>
+  </div>
+</div>

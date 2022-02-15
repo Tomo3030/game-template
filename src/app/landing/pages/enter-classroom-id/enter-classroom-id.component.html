@@ -1,0 +1,30 @@
+<div class="inner">
+  <div class="input-container">
+    <input
+      [(ngModel)]="id"
+      mat-input
+      class="input"
+      type="text"
+      autocomplete="off"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      placeholder="Enter Classroom Id"
+      onfocus="this.placeholder = ''"
+      onblur="this.placeholder = 'Enter Classroom Id'"
+      maxlength="6"
+    />
+  </div>
+
+  <button mat-raised-button color="accent" class="button" (click)="onSubmit()">
+    SUBMIT
+  </button>
+</div>
+
+<div class="bottom-info-container">
+  For more options sign in:
+  <div>
+    <button mat-stroked-button class="my-stroked-button" routerLink="signin">
+      Sign in
+    </button>
+  </div>
+</div>

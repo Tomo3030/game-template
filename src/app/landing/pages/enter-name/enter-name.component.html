@@ -1,0 +1,32 @@
+<div>
+  <ng-container *ngIf="user$ | async as user; else enterName">
+    <is-signed-in [user]="user" (continueEvent)="onContinue(user.displayName)">
+    </is-signed-in>
+  </ng-container>
+
+  <ng-template #enterName>
+    <div class="inner">
+      <div class="input-container">
+        <input
+          [(ngModel)]="name"
+          mat-input
+          class="input"
+          type="text"
+          autocomplete="off"
+          placeholder="Enter Your Name"
+          onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter Your Name'"
+        />
+      </div>
+
+      <button
+        mat-raised-button
+        color="accent"
+        class="submit-button"
+        (click)="onSubmit()"
+      >
+        SUBMIT
+      </button>
+    </div>
+  </ng-template>
+</div>
