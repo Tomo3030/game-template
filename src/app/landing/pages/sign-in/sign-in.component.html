@@ -1,4 +1,5 @@
 <div class="outer">
+  <logo></logo>
   <ng-container *ngIf="user$ | async as user; else showSignIn">
     <is-signed-in [user]="user"> </is-signed-in>
   </ng-container>
@@ -48,7 +49,7 @@
       <button
         class="my-stroked-button button"
         mat-stroked-button
-        routerLink="/signup"
+        routerLink="/createaccount"
       >
         Create an Account
       </button>

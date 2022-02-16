@@ -1,4 +1,6 @@
-<div>
+<div class="outer">
+  <logo></logo>
+
   <ng-container *ngIf="user$ | async as user; else enterName">
     <is-signed-in [user]="user" (continueEvent)="onContinue(user.displayName)">
     </is-signed-in>
