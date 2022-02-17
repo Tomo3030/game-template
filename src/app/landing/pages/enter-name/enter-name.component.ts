@@ -8,7 +8,7 @@ import { SnackService } from 'src/app/core/services/snack.service';
 @Component({
   selector: 'app-enter-name',
   templateUrl: './enter-name.component.html',
-  styleUrls: ['./enter-name.component.scss']
+  styleUrls: ['./enter-name.component.scss', './../../landing-styles.scss']
 })
 export class EnterNameComponent implements OnInit {
 classroomId: string | null = null;

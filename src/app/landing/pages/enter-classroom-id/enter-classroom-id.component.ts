@@ -9,10 +9,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-enter-classroom-id',
   templateUrl: './enter-classroom-id.component.html',
-  styleUrls: ['./enter-classroom-id.component.scss']
+  styleUrls: ['./enter-classroom-id.component.scss', './../../landing-styles.scss']
 })
 export class EnterClassroomIdComponent implements OnInit {
   id:number | undefined;
+  legend = false;
+  name = '';
+
+
   constructor(
     private spinner: SpinnerService,
     private snack: SnackService,

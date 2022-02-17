@@ -6,7 +6,7 @@ import { SpinnerService } from 'src/app/core/services/spinner.service';
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
-  styleUrls: ['./create-account.component.scss']
+  styleUrls: ['./create-account.component.scss', './../../landing-styles.scss']
 })
 export class CreateAccountComponent implements OnInit {
   form : any;

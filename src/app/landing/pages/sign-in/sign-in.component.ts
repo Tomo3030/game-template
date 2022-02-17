@@ -7,7 +7,7 @@ import { SpinnerService } from 'src/app/core/services/spinner.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./sign-in.component.scss', './../../landing-styles.scss']
 })
 export class SignInComponent implements OnInit {
 form!: FormGroup;

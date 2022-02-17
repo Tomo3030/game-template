@@ -7,24 +7,22 @@
   </ng-container>
 
   <ng-template #enterName>
-    <div class="inner">
-      <div class="input-container">
-        <input
-          [(ngModel)]="name"
-          mat-input
-          class="input"
-          type="text"
-          autocomplete="off"
-          placeholder="Enter Your Name"
-          onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Enter Your Name'"
-        />
-      </div>
+    <div class="stack-container inner">
+      <input
+        [(ngModel)]="name"
+        mat-input
+        class="input"
+        type="text"
+        autocomplete="off"
+        placeholder="Enter Your Name"
+        onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'Enter Your Name'"
+      />
 
       <button
         mat-raised-button
         color="accent"
-        class="submit-button"
+        class="button"
         (click)="onSubmit()"
       >
         SUBMIT
