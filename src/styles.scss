@@ -3,10 +3,16 @@
 @use "~@angular/material" as mat;
 // Plus imports for other components in your app.
 
+//TYPOGRAPHY
+//need to import in index.html
+$my-font: "Outfit";
+$my-typography: mat.define-typography-config(
+  $font-family: $my-font,
+);
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat.core();
+@include mat.core($my-typography);
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -43,5 +49,5 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: $my-font, sans-serif;
 }
