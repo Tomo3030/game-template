@@ -5,62 +5,64 @@
   </ng-container>
 
   <ng-template #showSignIn>
-    <form [formGroup]="form" (ngSubmit)="signIn()">
-      <mat-card class="card">
-        <mat-form-field color="accent">
-          <input
-            matInput
-            formControlName="email"
-            type="email"
-            placeholder="Email"
-            autocomplete="off"
-          />
-          <mat-error *ngIf="email?.invalid && email?.dirty">
-            You must enter a valid email address
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field color="accent">
-          <input
-            matInput
-            formControlName="password"
-            type="password"
-            placeholder="Password"
-            autocomplete="off"
-          />
+    <div class="stack-container">
+      <form [formGroup]="form" (ngSubmit)="signIn()">
+        <mat-card class="card">
+          <mat-form-field color="accent">
+            <input
+              matInput
+              formControlName="email"
+              type="email"
+              placeholder="Email"
+              autocomplete="off"
+            />
+            <mat-error *ngIf="email?.invalid && email?.dirty">
+              You must enter a valid email address
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field color="accent">
+            <input
+              matInput
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+              autocomplete="off"
+            />
 
-          <mat-error *ngIf="password?.invalid && password?.dirty">
-            Password must be at least 6 characters long
-          </mat-error>
-        </mat-form-field>
+            <mat-error *ngIf="password?.invalid && password?.dirty">
+              Password must be at least 6 characters long
+            </mat-error>
+          </mat-form-field>
 
-        <mat-error *ngIf="password?.value === null" class="server-error">{{
-          serverMessage
-        }}</mat-error>
-      </mat-card>
+          <mat-error *ngIf="password?.value === null" class="server-error">{{
+            serverMessage
+          }}</mat-error>
+        </mat-card>
+      </form>
 
-      <button class="button" mat-raised-button color="accent" type="submit">
-        Sign In
-      </button>
-      <div class="center">
-        <h4 class="or">or</h4>
+      <div class="under-card stack-container">
+        <button class="button" mat-raised-button color="accent" type="submit">
+          Sign In
+        </button>
+
+        <div>or</div>
+
+        <button
+          class="my-stroked-button button"
+          mat-stroked-button
+          routerLink="/createaccount"
+        >
+          Create an Account
+        </button>
+
+        <button
+          (click)="signInWithGoogle()"
+          class="my-stroked-button button"
+          mat-stroked-button
+        >
+          Sign in With Google
+        </button>
       </div>
-    </form>
-    <div class="button-container">
-      <button
-        class="my-stroked-button button"
-        mat-stroked-button
-        routerLink="/createaccount"
-      >
-        Create an Account
-      </button>
-
-      <button
-        (click)="signInWithGoogle()"
-        class="my-stroked-button button"
-        mat-stroked-button
-      >
-        Sign in With Google
-      </button>
     </div>
   </ng-template>
 </div>
