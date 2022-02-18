@@ -1,1 +1,10 @@
-<p>dashboard works!</p>
+<toolbar></toolbar>
+<div class="grid">
+  <select-question-set-card> </select-question-set-card>
+
+  <ng-container *ngIf="selected">
+    <div *ngFor="let question of questionSets[selected]">
+      <question-card [question]="question"></question-card>
+    </div>
+  </ng-container>
+</div>

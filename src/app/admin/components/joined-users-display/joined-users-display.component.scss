@@ -1,0 +1,9 @@
+.outer {
+  margin: 24px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-name {
+  flex: 0 0 100px;
+}
