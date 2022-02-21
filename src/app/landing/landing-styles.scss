@@ -1,3 +1,5 @@
+@import "/src/variables.scss";
+
 mat-form-field {
   width: 100%;
 }
@@ -7,6 +9,8 @@ mat-form-field {
 }
 
 .input {
+  font-size: 1.2em;
+  font-weight: 900;
   font-family: "Outfit", sans-serif;
   width: 100%;
   text-align: center;
@@ -16,7 +20,19 @@ mat-form-field {
   border-radius: 4px;
   transition: 0.2s;
   box-sizing: border-box;
-  color: #00454d;
+  color: $card-color;
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 0.3px;
+}
+
+.input:focus {
+  border: 2px solid $secondary;
+  color: $card-color;
+}
+
+::placeholder {
+  font-size: 0.8em;
+  font-weight: 600;
 }
 
 .inner {
@@ -40,6 +56,7 @@ mat-form-field {
   border-radius: 4px;
   transition: 0.2s;
   box-sizing: border-box;
+  letter-spacing: 0.6px;
 }
 
 .under-card {

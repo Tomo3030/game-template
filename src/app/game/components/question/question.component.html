@@ -1,0 +1,50 @@
+<div class="question-container">
+  <div class="question">{{ question.question }}</div>
+
+  <ng-container [ngSwitch]="question.questionType">
+    <div *ngSwitchCase="'text'" class="input-container">
+      <input type="search" class="my-input" [formControl]="control" />
+    </div>
+
+    <div *ngSwitchCase="'radio'">
+      <mat-radio-group
+        aria-label="Select an option"
+        [formControl]="control"
+        required
+      >
+        <div class="radio-container">
+          <mat-radio-button
+            *ngFor="let option of question?.options"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </div>
+
+    <div *ngSwitchCase="'number'" class="input-container">
+      <button
+        (click)="decrementValue()"
+        mat-icon-button
+        aria-label="decrease"
+        type="button"
+      >
+        <mat-icon class="icon-button" color="accent"
+          >remove_circle_outline</mat-icon
+        >
+      </button>
+      <input type="number" class="my-input number" [formControl]="control" />
+      <button
+        (click)="incrementValue()"
+        mat-icon-button
+        aria-label="increase"
+        type="button"
+      >
+        <mat-icon class="icon-button" color="accent"
+          >add_circle_outline</mat-icon
+        >
+      </button>
+    </div>
+  </ng-container>
+</div>

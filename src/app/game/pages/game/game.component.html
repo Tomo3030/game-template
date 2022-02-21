@@ -1,0 +1,16 @@
+<game-toolbar
+  *ngIf="gameStatus === 'doingSurvey' || gameStatus === 'doingMingle'"
+  [gameStatus]="gameStatus"
+></game-toolbar>
+
+<waiting
+  *ngIf="
+    gameStatus === 'waitingToStartSurvey' ||
+    gameStatus === 'waitingToStartMingle'
+  "
+  [gameStatus]="gameStatus"
+></waiting>
+
+<survey *ngIf="gameStatus === 'doingSurvey'"></survey>
+
+<mingle *ngIf="gameStatus === 'doingMingle'"></mingle>

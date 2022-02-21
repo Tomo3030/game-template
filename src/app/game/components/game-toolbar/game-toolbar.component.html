@@ -1,0 +1,14 @@
+<div class="my-bar">
+  <span *ngIf="displayView === 'survey'; else mingle" class="title"
+    >Survey Questions</span
+  >
+</div>
+
+<ng-template #mingle>
+  <span class="title">Mingle Questions</span>
+  <div>
+    <div class="score-container">
+      <div class="score">{{ score }}</div>
+    </div>
+  </div>
+</ng-template>

@@ -5,7 +5,9 @@
 
 //TYPOGRAPHY
 //need to import in index.html
-$my-font: "Outfit";
+
+@import "_variables.scss";
+
 $my-typography: mat.define-typography-config(
   $font-family: $my-font,
 );
@@ -17,8 +19,53 @@ $my-typography: mat.define-typography-config(
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$base-game-primary: mat.define-palette(mat.$indigo-palette);
-$base-game-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-primary: (
+  50: #e1eef1,
+  100: #b5d4db,
+  200: #83b8c3,
+  300: #519cab,
+  400: #2c8699,
+  500: #077187,
+  600: #06697f,
+  700: #055e74,
+  800: #04546a,
+  900: #024257,
+  A100: #89dcff,
+  A200: #56cdff,
+  A400: #23beff,
+  A700: #09b6ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$my-accent: (
+  A200: #ff9e80,
+  A100: #ffe2d9,
+  A400: #ffe2d9,
+  contrast: (
+    A200: #272727,
+    A100: #272727,
+    A400: #272727,
+  ),
+);
+
+$base-game-primary: mat.define-palette($my-primary);
+$base-game-accent: mat.define-palette($my-accent, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $base-game-warn: mat.define-palette(mat.$red-palette);
@@ -50,4 +97,6 @@ body {
 body {
   margin: 0;
   font-family: $my-font, sans-serif;
+  color: #272727;
+  background-color: $my-background;
 }

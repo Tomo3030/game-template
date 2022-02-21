@@ -1,0 +1,20 @@
+<div class="overlay">
+  <mat-card class="card">
+    <div class="instructions">
+      <ng-container *ngIf="showMingleMessage; else showSurveyMessage">
+        <h2 class="card-header">Your MINGLE will start soon...</h2>
+        <h3 class="card-sub">Waiting for students to finish</h3>
+      </ng-container>
+    </div>
+    <mat-progress-bar
+      color="accent"
+      class="progress-bar"
+      mode="indeterminate"
+    ></mat-progress-bar>
+  </mat-card>
+</div>
+
+<ng-template #showSurveyMessage>
+  <h2 class="card-header">Your SURVEY will start soon...</h2>
+  <h3 class="card-sub">Waiting for more students to join</h3>
+</ng-template>

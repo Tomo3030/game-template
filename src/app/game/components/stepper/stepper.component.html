@@ -1,0 +1,35 @@
+<section class="container">
+  <header class="header" #stepper>
+    <div
+      *ngFor="let step of steps; let i = index; let last = last"
+      class="step-container"
+    >
+      <ng-container
+        *ngIf="step.stepLabel; else showLabelText"
+        [ngTemplateOutlet]="step.stepLabel.template"
+      >
+      </ng-container>
+      <ng-template #showLabelText>
+        {{ step.label }}
+
+        (click)="selectStepByIndex(i)" (click)="scrollToStep(i, stepper)"
+        [class.selected]="i === selectedIndex" class="step-number" matRipple
+        [matRippleCentered]="true" [matRippleUnbounded]="true" >
+        {{ i + 1 }}
+      </ng-template>
+      <div *ngIf="!last" class="step-line"></div>
+    </div>
+  </header>
+  <div
+    class="display-container"
+    [style.display]="selectedIndex === i ? 'block' : 'none'"
+    *ngFor="let step of _steps; let i = index"
+    [@stepperAnimation]="_getAnimationDirection(i)"
+    [attr.tabindex]="selectedIndex === i ? 0 : null"
+    [id]="_getStepContentId(i)"
+    [attr.aria-labelledby]="_getStepLabelId(i)"
+    [attr.aria-expanded]="selectedIndex === i"
+  >
+    <ng-container [ngTemplateOutlet]="step!.content"></ng-container>
+  </div>
+</section>

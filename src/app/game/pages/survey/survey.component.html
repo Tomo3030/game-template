@@ -1,0 +1,13 @@
+<stepper>
+  <form [formGroup]="myForm">
+    <cdk-step *ngFor="let step of surveyQuestions; let i = index">
+      <ng-template cdkStepLabel>
+        <mat-icon>done</mat-icon>
+      </ng-template>
+      <question [question]="step" [control]="myForm.controls[i]"></question>
+      <button class="game-button" color="primary" mat-flat-button>
+        Submit
+      </button>
+    </cdk-step>
+  </form>
+</stepper>
