@@ -1,3 +1,4 @@
+import { GameQuestion } from './../../../models/game-question';
 import { StepperComponent } from './../../components/stepper/stepper.component';
 import { CdkStepper } from '@angular/cdk/stepper';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -11,46 +12,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 export class SurveyComponent implements OnInit {
   @ViewChild('stepper') myStepper!: StepperComponent;
 
-  @Input() surveyQuestions = [
-    {
-      options:['Yes', 'No'],
-      question: "Have you been to Europe?",
-      questionType: "radio"},
-    {
-      options: ['Yes', 'No'],
-      question: "Have you been to Austrailia?",
-      questionType: "radio"
-    },
-    {
-      question: "How many countries have you traveled to?",
-      questionType: "number"
-    },
-    {
-      question: "What is your favorite country you have travelled to?",
-      questionType: "text"
-    },
-    {
-      options:['Yes', 'No'],
-      question: "Have you ever traveled to another country alone?",
-      questionType: "radio"
-    },
-    {
-      options: ['alone', 'family', 'friends'],
-      question: "Do you prefer to travel alone, with your family, or with friends?",
-      questionType: "radio"
-    },
-    {
-      question: "What country would you like to visit on your next vacation?",
-      questionType: "text"
-    },{
-      options: ['travel', 'explore', 'relax', 'cook', 'play', 'learn', 'sleep'],
-      question: "What do you like to do on vacation?",
-      questionType: "radio"
-    },
-    {
-      question: "How old were you when you first went abroad?",
-      questionType: "number"
-    }];
+  @Input() surveyQuestions!: GameQuestion[]
 
     myForm = this.fb.group({});
     formObservable = this.myForm.valueChanges;

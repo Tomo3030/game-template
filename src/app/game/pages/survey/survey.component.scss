@@ -5,6 +5,12 @@
   display: block;
 }
 
+.survey-button {
+  margin: auto;
+  display: block;
+  margin-top: 24px;
+}
+
 .pulse {
   box-shadow: 0 0 0 0 $primary-shadow;
   animation: pulse 1.5s infinite;

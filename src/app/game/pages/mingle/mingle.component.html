@@ -1,1 +1,42 @@
-<p>mingle works!</p>
+<!-- <div class="mingle-question-container">
+  <div class="mingle-question">Find someone who has travelled to Thailand</div>
+  <form class="example-form">
+    <div class="input-container">
+      <input
+        class="my-input"
+        type="text"
+        placeholder="Enter Name"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        #trigger
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let name of filteredNames | async" [value]="name">
+          {{ name }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+    <button mat-flat-button color="primary" class="game-button">Submit</button>
+  </form>
+</div> -->
+<mat-card>
+  <div class="mingle-question">Find someone who has travelled to Thailand</div>
+  <form>
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        type="text"
+        placeholder="Enter Name"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        #trigger
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let name of filteredNames | async" [value]="name">
+          {{ name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-flat-button color="primary">Submit</button>
+  </form>
+</mat-card>

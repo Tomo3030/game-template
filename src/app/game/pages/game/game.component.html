@@ -11,6 +11,9 @@
   [gameStatus]="gameStatus"
 ></waiting>
 
-<survey *ngIf="gameStatus === 'doingSurvey'"></survey>
+<survey
+  [surveyQuestions]="surveyQuestions"
+  *ngIf="gameStatus === 'doingSurvey'"
+></survey>
 
 <mingle *ngIf="gameStatus === 'doingMingle'"></mingle>

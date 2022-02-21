@@ -1,0 +1,35 @@
+@import "../../game-styles.scss";
+
+.mingle-question-container {
+  padding: 24px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.mingle-question {
+  font-size: 1.4em;
+  font-weight: 300;
+  text-align: center;
+  line-height: normal;
+  padding-bottom: 24px;
+}
+
+.input-container {
+  text-align: center;
+}
+
+.my-input {
+  height: 36px;
+  font-size: 1em;
+  width: 250px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  background-color: #d5f4f1;
+  text-align: center;
+}
+
+.my-input:focus {
+  outline: 2px solid $secondary;
+}

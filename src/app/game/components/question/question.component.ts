@@ -1,3 +1,4 @@
+import { GameQuestion } from './../../../models/game-question';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, AbstractControl } from '@angular/forms';
 
@@ -7,7 +8,7 @@ import { FormControl, AbstractControl } from '@angular/forms';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-  @Input() question: any;
+  @Input() question!: GameQuestion;
   @Input() control!: any;
 
   constructor() { }

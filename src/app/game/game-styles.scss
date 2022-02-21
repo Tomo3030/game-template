@@ -1,9 +1,28 @@
-.game-button {
+@import "/src/_variables.scss";
+
+// .game-button {
+//   width: 100%;
+//   height: 48px;
+//   letter-spacing: 0.6px;
+//   max-width: 250px;
+//   margin: 28px auto;
+//   display: block;
+//   border-radius: 14px;
+// }
+
+//text
+.my-input {
+  height: 50px;
+  font-size: 1.3em;
   width: 100%;
-  height: 48px;
-  letter-spacing: 0.6px;
-  max-width: 300px;
-  margin: 36px auto;
-  display: block;
-  border-radius: 14px;
+  border: none;
+  border-radius: 16px;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  background-color: #d5f4f1;
+  text-align: center;
+}
+
+.my-input:focus {
+  outline: 2px solid $secondary;
 }

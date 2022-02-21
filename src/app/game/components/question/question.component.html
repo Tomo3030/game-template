@@ -1,9 +1,8 @@
-<div class="question-container">
-  <div class="question">{{ question.question }}</div>
-
+<h2 class="question">{{ question.surveyQuestion }}</h2>
+<div class="input-area">
   <ng-container [ngSwitch]="question.questionType">
     <div *ngSwitchCase="'text'" class="input-container">
-      <input type="search" class="my-input" [formControl]="control" />
+      <input type="search" class="input" [formControl]="control" />
     </div>
 
     <div *ngSwitchCase="'radio'">
@@ -14,10 +13,10 @@
       >
         <div class="radio-container">
           <mat-radio-button
-            *ngFor="let option of question?.options"
-            [value]="option"
+            *ngFor="let option of question?.answerOptions"
+            [value]="option.mingleView"
           >
-            {{ option }}
+            {{ option.surveyView }}
           </mat-radio-button>
         </div>
       </mat-radio-group>
@@ -34,7 +33,7 @@
           >remove_circle_outline</mat-icon
         >
       </button>
-      <input type="number" class="my-input number" [formControl]="control" />
+      <input type="number" class="input number" [formControl]="control" />
       <button
         (click)="incrementValue()"
         mat-icon-button

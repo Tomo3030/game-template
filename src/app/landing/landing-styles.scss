@@ -8,27 +8,27 @@ mat-form-field {
   padding: 24px;
 }
 
-.input {
-  font-size: 1.2em;
-  font-weight: 900;
-  font-family: "Outfit", sans-serif;
-  width: 100%;
-  text-align: center;
-  border: 2px solid #e0e0e0;
-  outline: none;
-  height: 48px;
-  border-radius: 4px;
-  transition: 0.2s;
-  box-sizing: border-box;
-  color: $card-color;
-  transition: all 0.2s ease-in-out;
-  letter-spacing: 0.3px;
-}
+// .input {
+//   font-size: 1.2em;
+//   font-weight: 900;
+//   font-family: "Outfit", sans-serif;
+//   width: 100%;
+//   text-align: center;
+//   border: 2px solid #e0e0e0;
+//   outline: none;
+//   height: 48px;
+//   border-radius: 4px;
+//   transition: 0.2s;
+//   box-sizing: border-box;
+//   color: $card-color;
+//   transition: all 0.2s ease-in-out;
+//   letter-spacing: 0.3px;
+// }
 
-.input:focus {
-  border: 2px solid $secondary;
-  color: $card-color;
-}
+// .input:focus {
+//   border: 2px solid $secondary;
+//   color: $card-color;
+// }
 
 ::placeholder {
   font-size: 0.8em;
@@ -48,16 +48,16 @@ mat-form-field {
   gap: 24px;
 }
 
-.button {
-  width: 100%;
-  text-align: center;
-  outline: none;
-  height: 48px;
-  border-radius: 4px;
-  transition: 0.2s;
-  box-sizing: border-box;
-  letter-spacing: 0.6px;
-}
+// .button {
+//   width: 100%;
+//   text-align: center;
+//   outline: none;
+//   height: 48px;
+//   border-radius: 4px;
+//   transition: 0.2s;
+//   box-sizing: border-box;
+//   letter-spacing: 0.6px;
+// }
 
 .under-card {
   min-width: 260px;

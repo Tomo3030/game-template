@@ -1,3 +1,4 @@
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
@@ -19,6 +20,10 @@ import { QuestionComponent } from './components/question/question.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule} from '@angular/material/icon';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatListModule} from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -40,8 +45,11 @@ import { MatIconModule} from '@angular/material/icon';
     MatRadioModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatIconModule
-
+    MatIconModule,
+    MatAutocompleteModule,
+    OverlayModule,
+    MatListModule,
+    MatInputModule
 
   ]
 })
