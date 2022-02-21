@@ -1,11 +1,26 @@
-<stepper>
+<stepper #stepper>
   <form [formGroup]="myForm">
     <cdk-step *ngFor="let step of surveyQuestions; let i = index">
-      <ng-template cdkStepLabel>
+      <ng-template *ngIf="myForm.controls[i].valid" cdkStepLabel>
         <mat-icon>done</mat-icon>
       </ng-template>
       <question [question]="step" [control]="myForm.controls[i]"></question>
-      <button class="game-button" color="primary" mat-flat-button>
+      <button
+        *ngIf="myForm.invalid"
+        (click)="onNext(stepper.selectedIndex)"
+        class="game-button"
+        color="primary"
+        mat-flat-button
+      >
+        Next
+      </button>
+      <button
+        *ngIf="myForm.valid"
+        (click)="onSubmit()"
+        class="game-button pulse"
+        color="accent"
+        mat-flat-button
+      >
         Submit
       </button>
     </cdk-step>

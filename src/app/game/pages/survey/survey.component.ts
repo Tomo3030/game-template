@@ -1,5 +1,7 @@
+import { StepperComponent } from './../../components/stepper/stepper.component';
+import { CdkStepper } from '@angular/cdk/stepper';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'survey',
@@ -7,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./survey.component.scss']
 })
 export class SurveyComponent implements OnInit {
+  @ViewChild('stepper') myStepper!: StepperComponent;
+
   @Input() surveyQuestions = [
     {
       options:['Yes', 'No'],
@@ -69,4 +73,14 @@ export class SurveyComponent implements OnInit {
      })
   }
 
+  onNext(currentIndex:number){
+    if(currentIndex < this.surveyQuestions.length-1){
+      this.myStepper.selectStepByIndex(currentIndex+1);
+    } else {
+      let unanswered = Object.keys(this.myForm.controls).find(key => this.myForm.value[key]=== '');
+      if(unanswered) this.myStepper.selectStepByIndex(Number(unanswered));
+    }
+  }
+
+  onSubmit(){}
 }

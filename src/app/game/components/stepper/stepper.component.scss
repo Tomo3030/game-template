@@ -43,6 +43,16 @@
   transition: 0.2s ease-in-out;
 }
 
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  background-color: #077187;
+}
+
 .display-container {
   padding: 12px 24px;
 }

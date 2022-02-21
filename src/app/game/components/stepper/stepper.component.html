@@ -4,19 +4,22 @@
       *ngFor="let step of steps; let i = index; let last = last"
       class="step-container"
     >
-      <ng-container
-        *ngIf="step.stepLabel; else showLabelText"
-        [ngTemplateOutlet]="step.stepLabel.template"
+      <div
+        (click)="selectStepByIndex(i)"
+        [class.selected]="i === selectedIndex"
+        [class.label]="step.stepLabel"
+        class="step-number"
+        matRipple
+        [matRippleCentered]="true"
+        [matRippleUnbounded]="true"
       >
-      </ng-container>
-      <ng-template #showLabelText>
-        {{ step.label }}
-
-        (click)="selectStepByIndex(i)" (click)="scrollToStep(i, stepper)"
-        [class.selected]="i === selectedIndex" class="step-number" matRipple
-        [matRippleCentered]="true" [matRippleUnbounded]="true" >
-        {{ i + 1 }}
-      </ng-template>
+        <span *ngIf="!step.stepLabel || selectedIndex === i">{{ i + 1 }}</span>
+        <span
+          *ngIf="step.stepLabel && selectedIndex !== i"
+          class="icon-container"
+          ><mat-icon>done</mat-icon></span
+        >
+      </div>
       <div *ngIf="!last" class="step-line"></div>
     </div>
   </header>
