@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -23,6 +24,8 @@ import { MatIconModule} from '@angular/material/icon';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatListModule} from '@angular/material/list';
+import { MingleInputComponent } from './components/mingle-input/mingle-input.component';
+import { CorrectOverlayComponent } from './components/correct-overlay/correct-overlay.component';
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import {MatListModule} from '@angular/material/list';
     SurveyComponent,
     MingleComponent,
     StepperComponent,
-    QuestionComponent
+    QuestionComponent,
+    MingleInputComponent,
+    CorrectOverlayComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +54,8 @@ import {MatListModule} from '@angular/material/list';
     MatAutocompleteModule,
     OverlayModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
 
   ]
 })

@@ -1,3 +1,7 @@
+import { stepperAnimation } from './../../../animations/step-animation';
+import { overlayInOut } from './../../../animations/overlay-in-out';
+import { SnackService } from './../../../core/services/snack.service';
+import { shake } from './../../../animations/shake';
 import { Observable, of } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -7,10 +11,17 @@ import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 @Component({
   selector: 'mingle',
   templateUrl: './mingle.component.html',
-  styleUrls: ['./mingle.component.scss']
+  styleUrls: ['./mingle.component.scss'],
+  animations: [shake, overlayInOut, stepperAnimation]
 })
 export class MingleComponent implements OnInit {
-  @ViewChild('trigger') trigger!: MatAutocompleteTrigger
+  shake = false;
+  checking = false;
+  overlay = true;
+  control = new FormControl;
+
+
+
 names = [
   'Alice',
   'Bob',
@@ -27,29 +38,47 @@ names = [
   '정민'
 ];
 
-filteredNames! : Observable<string[]>
-
-control = new FormControl;
 
 
-  constructor() { }
+
+  constructor(private snack: SnackService) { }
 
   ngOnInit(): void {
-    this.filteredNames = this.control.valueChanges.pipe(
-      map(value => this._filter(value)),
-    );
+
   }
 
-  private _filter(value: string): string[] {
-    if(!value) return [];
-    const filterValue = this._normalizeValue(value);
-    return this.names.filter(name => this._normalizeValue(name).includes(filterValue));
+  checkAnswer(){
+    this.checking = true;
+    setTimeout(() => {
+      this._isWrong()
+      //this._isCorrect();
+    }, 2000);
 
-}
 
-  private _normalizeValue(value: string): string {
-    return value.toLowerCase().replace(/\s/g, '');
   }
+
+  private _isCorrect(){
+    this.checking = false;
+    this.toggleOverlay()
+  }
+
+  private _isWrong(){
+    this.checking = false;
+    this.shake = !this.shake;
+    setTimeout(() => {
+    this.control.setValue('');
+    this.snack.makeSnack('Incorrect, try again!');
+    }, 800);
+  }
+
+  toggleOverlay(){
+    console.log('toggleOverlay')
+    this.overlay = !this.overlay;
+  }
+
+
+
+
 
 
 }

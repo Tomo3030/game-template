@@ -1,42 +1,37 @@
-<!-- <div class="mingle-question-container">
-  <div class="mingle-question">Find someone who has travelled to Thailand</div>
-  <form class="example-form">
-    <div class="input-container">
-      <input
-        class="my-input"
-        type="text"
-        placeholder="Enter Name"
-        [formControl]="control"
-        [matAutocomplete]="auto"
-        #trigger
-      />
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let name of filteredNames | async" [value]="name">
-          {{ name }}
-        </mat-option>
-      </mat-autocomplete>
-    </div>
-    <button mat-flat-button color="primary" class="game-button">Submit</button>
-  </form>
-</div> -->
-<mat-card>
-  <div class="mingle-question">Find someone who has travelled to Thailand</div>
-  <form>
-    <mat-form-field appearance="fill">
-      <input
-        matInput
-        type="text"
-        placeholder="Enter Name"
-        [formControl]="control"
-        [matAutocomplete]="auto"
-        #trigger
-      />
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let name of filteredNames | async" [value]="name">
-          {{ name }}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-    <button mat-flat-button color="primary">Submit</button>
-  </form>
+<mat-card class="card">
+  <h2>Find someone who has travelled to Thailand?</h2>
+  <div class="under-question">
+    <mat-card-content>
+      <mat-form-field class="form" appearance="fill" [@shake]="shake">
+        <input
+          matInput
+          placeholder="Enter Name"
+          [formControl]="control"
+          [matAutocomplete]="auto"
+          [readonly]="checking"
+          #trigger
+        />
+        <div class="spin-wrapper" *ngIf="checking">
+          <mat-spinner class="input-spin" diameter="20"></mat-spinner>
+        </div>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let name of names" [value]="name">
+            {{ name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </mat-card-content>
+  </div>
+  <div class="button-container">
+    <button
+      type="button"
+      (click)="checkAnswer()"
+      mat-raised-button
+      color="primary"
+      class="mingle-button"
+      [disabled]="checking"
+    >
+      Submit
+    </button>
+  </div>
 </mat-card>

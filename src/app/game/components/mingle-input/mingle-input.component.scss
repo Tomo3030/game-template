@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+@import "/src/_variables";
+
+input {
+  margin-bottom: 24px;
+  color: #4f4f4f;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  outline: 2px solid #fff;
+  width: 250px;
+  height: 44px;
+  border-radius: 4px;
+  display: block;
+  margin: auto;
+  font: $my-font, sans-serif;
+}
+
+.checking {
+  background-color: #a5a5a56b;
+  outline: 2px solid #a5a5a5a2;
+}
+
+.input-outer {
+  height: 54px;
+  position: relative;
+}
+
+input:focus {
+  outline: 2px solid $secondary;
+}
+
+.bar {
+  width: 256px;
+  margin: auto;
+  position: relative;
+  bottom: 2px;
+  border-radius: 4px;
+}

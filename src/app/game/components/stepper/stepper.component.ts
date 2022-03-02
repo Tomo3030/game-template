@@ -1,5 +1,5 @@
 import { CdkStepper } from '@angular/cdk/stepper';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { stepperAnimation } from '@animations/step-animation';
 
 @Component({
@@ -12,15 +12,20 @@ import { stepperAnimation } from '@animations/step-animation';
 export class StepperComponent extends CdkStepper implements OnInit {
   selectStepByIndex(index: number): void {
     this.selectedIndex = index;
-    this.scrollToStep(index)
+    this._scrollToStep(index)
   }
+  @Input() selectDisabled: boolean = false;
 
   ngOnInit(): void {
   }
 
   @ViewChild('stepper') stepper!: ElementRef;
 
-  scrollToStep(index: number){
+  onStepSelect(index:number){
+    if(!this.selectDisabled) this.selectStepByIndex(index);
+  }
+
+  private _scrollToStep(index: number){
     let scrollEl  =this.stepper.nativeElement.children[index];
     if(scrollEl){
       scrollEl.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});

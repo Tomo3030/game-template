@@ -5,11 +5,12 @@
       class="step-container"
     >
       <div
-        (click)="selectStepByIndex(i)"
+        (click)="onStepSelect(i)"
         [class.selected]="i === selectedIndex"
         [class.label]="step.stepLabel"
         class="step-number"
         matRipple
+        [matRippleDisabled]="selectDisabled"
         [matRippleCentered]="true"
         [matRippleUnbounded]="true"
       >

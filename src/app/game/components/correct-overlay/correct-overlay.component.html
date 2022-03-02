@@ -1,0 +1,17 @@
+<div
+  [@dropInOut]="chain.order[0]"
+  (@dropInOut.done)="chain.next()"
+  class="message"
+>
+  SCORE:
+</div>
+<div
+  [@scaleInOut]="chain.order[1]"
+  (@scaleInOut.done)="chain.next(500)"
+  (@scaleInOut.done)="log($event)"
+  [@jello]="chain.order[2]"
+  (@jello.done)="chain.next(1000)"
+  class="score"
+>
+  {{ score }}
+</div>

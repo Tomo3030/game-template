@@ -8,7 +8,7 @@ import { GameStatus } from 'src/app/models/game-status';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
-  gameStatus: GameStatus = 'doingSurvey';
+  gameStatus: GameStatus = 'doingMingle';
   score?: number;
 
   surveyQuestions: GameQuestion[] = [

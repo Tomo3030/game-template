@@ -1,0 +1,27 @@
+<div class="outer">
+  <form class="example-form">
+    <div class="input-outer">
+      <input
+        [readonly]="checking"
+        class="name-input"
+        [class.checking]="checking"
+        type="text"
+        placeholder="Enter Name"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        #trigger
+      />
+      <mat-progress-bar
+        *ngIf="checking"
+        class="bar"
+        mode="indeterminate"
+        color="accent"
+      ></mat-progress-bar>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let name of filteredNames | async" [value]="name">
+          {{ name }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+  </form>
+</div>
